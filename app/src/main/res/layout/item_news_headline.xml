@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.NewsHeadlinesFragment">
+
+    <data>
+
+        <variable
+            name="newsHeadline"
+            type="com.ct.model.vo.UINewsHeadline" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headline_item_height"
+        android:padding="@dimen/headline_item_margin">
+
+        <ImageView
+            android:id="@+id/headline_iv"
+            android:layout_width="@dimen/headline_image_size"
+            android:layout_height="@dimen/headline_image_size"
+            app:imageUrl="@{newsHeadline.imageUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@drawable/ic_launcher_foreground" />
+
+        <TextView
+            android:id="@+id/headline_tv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:ellipsize="end"
+            android:paddingHorizontal="@dimen/headline_item_margin"
+            android:text="@{newsHeadline.title}"
+            app:layout_constraintBottom_toTopOf="@+id/date_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/headline_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/lorem_ipsum_title" />
+
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/headline_item_margin"
+            android:text="@{newsHeadline.publishedAt.toLocaleString()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/lorem_ipsum_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -4,13 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.ct.R
+import com.ct.adapter.HeadlineListAdapter
+import com.ct.api.APIResponse
 import com.ct.base.BaseFragment
 import com.ct.databinding.FragmentNewsHeadlinesBinding
+import com.ct.model.ToolbarConfig
+import com.ct.viewmodel.HomeViewModel
+
 
 class NewsHeadlinesFragment : BaseFragment() {
 
     private var _binding: FragmentNewsHeadlinesBinding? = null
     private val binding get() = _binding!!
+    private val homeViewModel: HomeViewModel by activityViewModels()
+
+    private lateinit var headlineListAdapter: HeadlineListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +48,48 @@ class NewsHeadlinesFragment : BaseFragment() {
     }
 
     override fun initViews() {
+
+        headlineListAdapter = HeadlineListAdapter(arrayListOf(), onItemClick = { selectedHeadline ->
+            homeViewModel.selectedHeadline(selectedHeadline)
+
+            if (binding.descriptionFragmentContainer == null) {
+                navigateToDescriptionFragment()
+            }
+        })
+        binding.newsHeadlineRv.adapter = headlineListAdapter
+        binding.newsHeadlineRv.addItemDecoration(
+            DividerItemDecoration(
+                requireContext(),
+                LinearLayoutManager.VERTICAL
+            )
+        )
     }
 
     override fun collectFlow() {
+
+        collectFlow(homeViewModel.newsHeadlines) {
+            when (it) {
+                is APIResponse.Loading -> {
+                    binding.progressIndicator.show()
+                }
+
+                is APIResponse.Failure -> {
+                    binding.progressIndicator.hide()
+                    showFailMessage(
+                        requireView(),
+                        it.error ?: getString(R.string.something_went_wrong)
+                    )
+                }
+
+                is APIResponse.Success -> {
+                    binding.progressIndicator.hide()
+                    headlineListAdapter.setData(it.data ?: arrayListOf())
+                }
+            }
+        }
+    }
+
+    private fun navigateToDescriptionFragment() {
+        navigate(NewsHeadlinesFragmentDirections.actionNewsHeadlinesFragmentToNewsDescriptionFragment())
     }
 }

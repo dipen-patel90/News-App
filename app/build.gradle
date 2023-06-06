@@ -13,6 +13,21 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+def getLocalProperties(String key) {
+    Properties properties = new Properties()
+    File file = project.rootProject.file('local.properties')
+    if (file.exists()) {
+        properties.load(file.newDataInputStream())
+        return properties.getProperty(key)
+    } else {
+        return ""
+    }
+}
+
+def getSystemOrLocalProperty(String propertyKey, String defaultLocalPropertyKey = "") {
+    return System.getenv(propertyKey) ?: getLocalProperties(defaultLocalPropertyKey == "" ? propertyKey : defaultLocalPropertyKey)
+}
+
 android {
     namespace 'com.ct'
     compileSdk 33
@@ -32,6 +47,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+//        buildTypes.each {
+//            it.buildConfigField 'String', 'NEWS_API_KEY', getSystemOrLocalProperty("NEWS_API_KEY")
+//        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -43,6 +62,20 @@ android {
     buildFeatures {
         dataBinding true
     }
+
+    flavorDimensions "default"
+    productFlavors{
+        bbc{
+            applicationIdSuffix ".bbc"
+            buildConfigField "String", 'NEWS_API_KEY', getSystemOrLocalProperty("BBC_API_KEY")
+        }
+
+        cnn{
+            applicationIdSuffix ".cnn"
+            buildConfigField "String", 'NEWS_API_KEY', getSystemOrLocalProperty("CNN_API_KEY")
+        }
+    }
+
 }
 
 dependencies {
@@ -66,6 +99,20 @@ dependencies {
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+
+    //GSON
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    //Glide - Image loading library
+    implementation "com.github.bumptech.glide:glide:$glide"
 }
 
 kapt {
