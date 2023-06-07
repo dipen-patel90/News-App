@@ -9,9 +9,10 @@ import com.ct.model.vo.UINewsHeadline
 import javax.annotation.Nullable
 
 class HeadlineListAdapter(
-    private val uiNewsHeadlines: ArrayList<UINewsHeadline>,
     private val onItemClick: (selectedHeadline: UINewsHeadline) -> Unit,
 ) : RecyclerView.Adapter<HeadlineListAdapter.ViewHolder>() {
+
+    private val uiNewsHeadlines: ArrayList<UINewsHeadline> = arrayListOf()
 
     inner class ViewHolder(private val binding: ItemNewsHeadlineBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -42,11 +43,11 @@ class HeadlineListAdapter(
 
     override fun getItemCount() = uiNewsHeadlines.size
 
-    fun setData(newEvents: List<UINewsHeadline>) {
-        val diffCallback = DiffCallback(uiNewsHeadlines, newEvents)
+    fun setData(newHeadlines: List<UINewsHeadline>) {
+        val diffCallback = DiffCallback(uiNewsHeadlines, newHeadlines)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         uiNewsHeadlines.clear()
-        uiNewsHeadlines.addAll(newEvents)
+        uiNewsHeadlines.addAll(newHeadlines.map { it.copy() })
         diffResult.dispatchUpdatesTo(this)
     }
 

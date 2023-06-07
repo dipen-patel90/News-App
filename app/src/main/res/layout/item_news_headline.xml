@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/headline_item_height"
-        android:background="@{newsHeadline.isSelected ? @color/teal_700 : @color/white}"
+        android:background="@{newsHeadline.isSelected ? @color/selected_color : @color/white}"
         android:padding="@dimen/headline_item_padding">
 
         <ImageView
@@ -35,6 +35,7 @@
             android:ellipsize="end"
             android:paddingHorizontal="@dimen/headline_item_padding"
             android:text="@{newsHeadline.title}"
+            android:textColor="@{newsHeadline.isSelected ? @color/white : @color/black}"
             app:layout_constraintBottom_toTopOf="@+id/date_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/headline_iv"
@@ -46,8 +47,10 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:text="@{newsHeadline.publishedAt.toLocaleString()}"
+            android:textColor="@{newsHeadline.isSelected ? @color/white : @color/black}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="@string/lorem_ipsum_title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

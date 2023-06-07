@@ -44,11 +44,25 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
         _selectedHeadline.emit(uiNewsHeadline)
     }
 
-    fun updateList(selectedHeadline: UINewsHeadline) = launchWithViewModelScope(
+    fun updateListSelection(selectedHeadline: UINewsHeadline) = launchWithViewModelScope(
         call = {
             _newsHeadlines.getValueBlockedOrNull()?.let {
                 it.data?.map {
                     it.isSelected = selectedHeadline.title == it.title
+                    it
+                }?.let {
+                    _newsHeadlines.emit(APIResponse.Success(it))
+                }
+            }
+        },
+        exceptionCallback = {}
+    )
+
+    fun clearListSelection() = launchWithViewModelScope(
+        call = {
+            _newsHeadlines.getValueBlockedOrNull()?.let {
+                it.data?.map {
+                    it.isSelected = false
                     it
                 }?.let {
                     _newsHeadlines.emit(APIResponse.Success(it))

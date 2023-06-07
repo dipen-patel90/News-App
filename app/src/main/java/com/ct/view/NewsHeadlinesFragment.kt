@@ -48,13 +48,14 @@ class NewsHeadlinesFragment : BaseFragment() {
 
     override fun initViews() {
 
-        headlineListAdapter = HeadlineListAdapter(arrayListOf(), onItemClick = { selectedHeadline ->
+        headlineListAdapter = HeadlineListAdapter(onItemClick = { selectedHeadline ->
             homeViewModel.selectedHeadline(selectedHeadline)
 
             if (binding.descriptionFragmentContainer == null) {
+                homeViewModel.clearListSelection()
                 navigateToDescriptionFragment()
             } else {
-                homeViewModel.updateList(selectedHeadline)
+                homeViewModel.updateListSelection(selectedHeadline)
             }
         })
         binding.newsHeadlineRv.adapter = headlineListAdapter
