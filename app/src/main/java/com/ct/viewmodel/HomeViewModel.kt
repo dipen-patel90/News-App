@@ -3,6 +3,7 @@ package com.ct.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.ct.api.APIResponse
 import com.ct.base.BaseViewModel
+import com.ct.extention.getValueBlockedOrNull
 import com.ct.model.dto.response.toUINewsHeadline
 import com.ct.model.vo.UINewsHeadline
 import com.ct.repository.NewsRepository
@@ -42,6 +43,20 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
     fun selectedHeadline(uiNewsHeadline: UINewsHeadline) = viewModelScope.launch {
         _selectedHeadline.emit(uiNewsHeadline)
     }
+
+    fun updateList(selectedHeadline: UINewsHeadline) = launchWithViewModelScope(
+        call = {
+            _newsHeadlines.getValueBlockedOrNull()?.let {
+                it.data?.map {
+                    it.isSelected = selectedHeadline.title == it.title
+                    it
+                }?.let {
+                    _newsHeadlines.emit(APIResponse.Success(it))
+                }
+            }
+        },
+        exceptionCallback = {}
+    )
 
     init {
         getTopHeadlines()

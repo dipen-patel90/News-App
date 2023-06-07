@@ -53,6 +53,8 @@ class NewsHeadlinesFragment : BaseFragment() {
 
             if (binding.descriptionFragmentContainer == null) {
                 navigateToDescriptionFragment()
+            } else {
+                homeViewModel.updateList(selectedHeadline)
             }
         })
         binding.newsHeadlineRv.adapter = headlineListAdapter

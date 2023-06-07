@@ -7,5 +7,14 @@ data class UINewsHeadline(
     val imageUrl: String?,
     val publishedAt: Date?,
     val description: String,
-    val content: String
-)
+    val content: String,
+    var isSelected: Boolean = false,
+) {
+    override fun toString(): String {
+        return super.toString()
+    }
+
+    override fun hashCode(): Int {
+        return super.hashCode()
+    }
+}

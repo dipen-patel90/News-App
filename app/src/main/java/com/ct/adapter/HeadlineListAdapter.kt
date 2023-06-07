@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ct.databinding.ItemNewsHeadlineBinding
 import com.ct.model.vo.UINewsHeadline
+import javax.annotation.Nullable
 
 class HeadlineListAdapter(
     private val uiNewsHeadlines: ArrayList<UINewsHeadline>,
@@ -65,7 +66,13 @@ class HeadlineListAdapter(
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
             val oldItem = oldList[oldItemPosition]
             val newItem = newList[newItemPosition]
+
             return oldItem == newItem
+        }
+
+        @Nullable
+        override fun getChangePayload(oldPosition: Int, newPosition: Int): Any? {
+            return super.getChangePayload(oldPosition, newPosition)
         }
     }
 }

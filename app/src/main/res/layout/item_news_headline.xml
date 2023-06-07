@@ -15,6 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/headline_item_height"
+        android:background="@{newsHeadline.isSelected ? @color/teal_700 : @color/white}"
         android:padding="@dimen/headline_item_padding">
 
         <ImageView
