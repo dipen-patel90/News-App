@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/headline_item_height"
-        android:padding="@dimen/headline_item_margin">
+        android:padding="@dimen/headline_item_padding">
 
         <ImageView
             android:id="@+id/headline_iv"
@@ -32,7 +32,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:ellipsize="end"
-            android:paddingHorizontal="@dimen/headline_item_margin"
+            android:paddingHorizontal="@dimen/headline_item_padding"
             android:text="@{newsHeadline.title}"
             app:layout_constraintBottom_toTopOf="@+id/date_tv"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,6 @@
             android:id="@+id/date_tv"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:paddingHorizontal="@dimen/headline_item_margin"
             android:text="@{newsHeadline.publishedAt.toLocaleString()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

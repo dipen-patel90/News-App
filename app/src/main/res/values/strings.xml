@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">News App</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="something_went_wrong_internet">Something went wrong, might be an internet issue.</string>
     <string name="lorem_ipsum_title">Lorem Ipsum</string>
-    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
-        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-        type specimen book"
-    </string>
+    <string name="verify_button_label">Verify Yourself</string>
+    <string name="login_successful">Login successful</string>
+    <string name="login_failed_please_try_again">Login failed, Please try again.</string>
+    <string name="biometric_not_supported">Biometric not supported.</string>
+    <string name="biometric_authentication">Biometric Authentication</string>
+    <string name="enter_biometric_credentials">Enter biometric credentials to proceed.</string>
+    <string name="input_your_fingerprint">Input your Fingerprint to ensure it\'s you!</string>
+    <string name="cancel">Cancel</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="content">Content</string>
 </resources>

@@ -1,3 +1,4 @@
 <resources>
+    <string name="app_name">BBC News</string>
     <string name="news_provider">BBC News</string>
 </resources>

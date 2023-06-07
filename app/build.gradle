@@ -113,6 +113,9 @@ dependencies {
 
     //Glide - Image loading library
     implementation "com.github.bumptech.glide:glide:$glide"
+
+    // Biometric
+    implementation "androidx.biometric:biometric:$biometric_version"
 }
 
 kapt {

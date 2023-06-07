@@ -2,7 +2,6 @@ package com.ct.base
 
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -67,15 +66,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    fun showFailMessage(view: View, @StringRes message: Int) {
-        showMessage(view, getString(message))
-    }
-
-    fun showFailMessage(view: View, message: String) {
-        showMessage(view, message)
-    }
-
-    private fun showMessage(view: View, message: String) {
+    fun showMessage(view: View, message: String) {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
     }
 
