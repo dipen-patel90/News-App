@@ -47,20 +47,25 @@ class NewsHeadlinesFragment : BaseFragment() {
     }
 
     override fun initViews() {
+        binding.apply {
+            headlineListAdapter = HeadlineListAdapter(onItemClick = { selectedHeadline ->
+                homeViewModel.selectedHeadline(selectedHeadline)
 
-        headlineListAdapter = HeadlineListAdapter(onItemClick = { selectedHeadline ->
-            homeViewModel.selectedHeadline(selectedHeadline)
+                if (descriptionFragmentContainer == null) {
+                    homeViewModel.clearListSelection()
+                    navigateToDescriptionFragment()
+                } else {
+                    homeViewModel.updateListSelection(selectedHeadline)
+                }
+            })
+            newsHeadlineRv.adapter = headlineListAdapter
+            newsHeadlineRv.addVerticalIndicator()
+            newsHeadlineRv.addHorizontalIndicator()
 
-            if (binding.descriptionFragmentContainer == null) {
-                homeViewModel.clearListSelection()
-                navigateToDescriptionFragment()
-            } else {
-                homeViewModel.updateListSelection(selectedHeadline)
+            srl.setOnRefreshListener {
+                homeViewModel.getTopHeadlines()
             }
-        })
-        binding.newsHeadlineRv.adapter = headlineListAdapter
-        binding.newsHeadlineRv.addVerticalIndicator()
-        binding.newsHeadlineRv.addHorizontalIndicator()
+        }
     }
 
     override fun collectFlow() {
@@ -68,11 +73,11 @@ class NewsHeadlinesFragment : BaseFragment() {
         collectFlow(homeViewModel.newsHeadlines) {
             when (it) {
                 is APIResponse.Loading -> {
-                    binding.progressIndicator.show()
+                    binding.srl.isRefreshing = true
                 }
 
                 is APIResponse.Failure -> {
-                    binding.progressIndicator.hide()
+                    binding.srl.isRefreshing = false
                     showMessage(
                         requireView(),
                         it.error ?: getString(R.string.something_went_wrong)
@@ -80,7 +85,7 @@ class NewsHeadlinesFragment : BaseFragment() {
                 }
 
                 is APIResponse.Success -> {
-                    binding.progressIndicator.hide()
+                    binding.srl.isRefreshing = false
                     headlineListAdapter.setData(it.data ?: arrayListOf())
                 }
             }

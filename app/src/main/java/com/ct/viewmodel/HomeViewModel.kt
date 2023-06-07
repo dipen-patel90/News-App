@@ -19,7 +19,7 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
 
     private val _newsHeadlines = MutableSharedFlow<APIResponse<List<UINewsHeadline>>>(1)
     val newsHeadlines = _newsHeadlines.asSharedFlow()
-    private fun getTopHeadlines() = launchWithViewModelScope(
+    fun getTopHeadlines() = launchWithViewModelScope(
         call = {
             _newsHeadlines.emit(APIResponse.Loading())
 
