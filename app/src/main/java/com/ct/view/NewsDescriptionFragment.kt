@@ -5,10 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.ct.R
 import com.ct.base.BaseFragment
 import com.ct.databinding.FragmentNewsDescriptionBinding
-import com.ct.model.ToolbarConfig
 import com.ct.viewmodel.HomeViewModel
 
 class NewsDescriptionFragment : BaseFragment() {

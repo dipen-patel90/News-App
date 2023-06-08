@@ -30,6 +30,10 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
                     .filter { it.title != null && it.publishedAt != null }
                     .map { it.toUINewsHeadline() }
                     .sortedByDescending { it.publishedAt }
+                filtered.firstOrNull()?.let {
+                    it.isSelected = true
+                    updateListSelection(it)
+                }
                 _newsHeadlines.emit(APIResponse.Success(filtered))
             } else {
                 _newsHeadlines.emit(APIResponse.Failure(result.errorBody().toString()))
@@ -41,29 +45,12 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
 
     private val _selectedHeadline = MutableSharedFlow<UINewsHeadline>(1)
     val selectedHeadlines = _selectedHeadline.asSharedFlow()
-    fun selectedHeadline(uiNewsHeadline: UINewsHeadline) = viewModelScope.launch {
-        _selectedHeadline.emit(uiNewsHeadline)
-    }
-
     fun updateListSelection(selectedHeadline: UINewsHeadline) = launchWithViewModelScope(
         call = {
+            _selectedHeadline.emit(selectedHeadline)
             _newsHeadlines.getValueBlockedOrNull()?.let {
                 it.data?.map {
                     it.isSelected = selectedHeadline.title == it.title
-                    it
-                }?.let {
-                    _newsHeadlines.emit(APIResponse.Success(it))
-                }
-            }
-        },
-        exceptionCallback = {}
-    )
-
-    fun clearListSelection() = launchWithViewModelScope(
-        call = {
-            _newsHeadlines.getValueBlockedOrNull()?.let {
-                it.data?.map {
-                    it.isSelected = false
                     it
                 }?.let {
                     _newsHeadlines.emit(APIResponse.Success(it))

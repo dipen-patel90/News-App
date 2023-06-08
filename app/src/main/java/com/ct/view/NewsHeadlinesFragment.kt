@@ -48,16 +48,15 @@ class NewsHeadlinesFragment : BaseFragment() {
 
     override fun initViews() {
         binding.apply {
-            headlineListAdapter = HeadlineListAdapter(onItemClick = { selectedHeadline ->
-                homeViewModel.selectedHeadline(selectedHeadline)
-
-                if (descriptionFragmentContainer == null) {
-                    homeViewModel.clearListSelection()
-                    navigateToDescriptionFragment()
-                } else {
+            headlineListAdapter = HeadlineListAdapter(
+                isLargeScreen = resources.getBoolean(R.bool.isLargeScreen),
+                onItemClick = { selectedHeadline ->
                     homeViewModel.updateListSelection(selectedHeadline)
-                }
-            })
+
+                    if (descriptionFragmentContainer == null) {
+                        navigateToDescriptionFragment()
+                    }
+                })
             newsHeadlineRv.adapter = headlineListAdapter
             newsHeadlineRv.addVerticalIndicator()
             newsHeadlineRv.addHorizontalIndicator()

@@ -24,7 +24,6 @@
             style="@style/TextView.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:paddingTop="@dimen/content_padding"
             android:text="@{title}"
             tools:text="@string/lorem_ipsum_title" />
@@ -33,7 +32,6 @@
             style="@style/TextView.Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:text="@{description}"
             tools:text="@string/lorem_ipsum_title" />
     </merge>

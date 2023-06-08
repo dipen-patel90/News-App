@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="newsHeadline"
             type="com.ct.model.vo.UINewsHeadline" />
@@ -22,18 +24,23 @@
             android:orientation="vertical"
             android:padding="@dimen/content_padding">
 
+            <TextView
+                android:id="@+id/headline_tv"
+                style="@style/TextView.Description.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingVertical="@dimen/headline_item_padding"
+                android:text="@{newsHeadline.title}"
+                tools:text="@string/lorem_ipsum_title" />
+
             <ImageView
                 android:id="@+id/news_iv"
-                android:layout_width="@dimen/description_image_size"
-                android:layout_height="@dimen/description_image_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 app:imageUrl="@{newsHeadline.imageUrl}"
                 tools:background="@drawable/ic_launcher_foreground" />
-
-            <include
-                layout="@layout/item_title_description"
-                app:description="@{newsHeadline.title}"
-                app:title="@{@string/title}" />
 
             <include
                 layout="@layout/item_title_description"

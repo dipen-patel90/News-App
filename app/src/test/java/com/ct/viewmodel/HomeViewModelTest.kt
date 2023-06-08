@@ -71,7 +71,7 @@ class HomeViewModelTest {
     }
 
     @Test
-    fun test_update_and_clear_ListSelection() = runTest {
+    fun test_updateListSelection() = runTest {
         read_news_response()
 
         val selectIndex = 3;
@@ -84,13 +84,6 @@ class HomeViewModelTest {
             val isSelected =
                 sut.newsHeadlines.getValueBlockedOrNull()?.data?.getOrNull(selectIndex)?.isSelected
             Assert.assertEquals(true, isSelected)
-
-            sut.clearListSelection()
-            advanceUntilIdle()
-
-            val shouldBeNull =
-                sut.newsHeadlines.getValueBlockedOrNull()?.data?.firstOrNull { it.isSelected }
-            Assert.assertNull(shouldBeNull)
         }
     }
 

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TextView.List.Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextView.Description.Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="TextView.Title" parent="Widget.AppCompat.TextView">
         <item name="android:textSize">@dimen/title_text_size</item>
         <item name="android:textStyle">bold</item>

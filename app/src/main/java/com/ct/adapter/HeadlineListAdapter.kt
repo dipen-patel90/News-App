@@ -9,6 +9,7 @@ import com.ct.model.vo.UINewsHeadline
 import javax.annotation.Nullable
 
 class HeadlineListAdapter(
+    private val isLargeScreen: Boolean,
     private val onItemClick: (selectedHeadline: UINewsHeadline) -> Unit,
 ) : RecyclerView.Adapter<HeadlineListAdapter.ViewHolder>() {
 
@@ -18,6 +19,9 @@ class HeadlineListAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(headline: UINewsHeadline) {
+            if (!isLargeScreen) {
+                headline.isSelected = false
+            }
             binding.newsHeadline = headline
         }
     }
