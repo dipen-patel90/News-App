@@ -26,7 +26,8 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
             val result = newsRepository.getTopHeadlines()
             val articles = result.body()?.articles
             if (result.isSuccessful && articles != null) {
-                val filtered = articles.filter { it.title != null && it.publishedAt != null }
+                val filtered = articles
+                    .filter { it.title != null && it.publishedAt != null }
                     .map { it.toUINewsHeadline() }
                     .sortedByDescending { it.publishedAt }
                 _newsHeadlines.emit(APIResponse.Success(filtered))

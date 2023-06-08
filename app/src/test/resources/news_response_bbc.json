@@ -1,0 +1,136 @@
+{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Francoise Gilot: Artist, writer and Picasso's former lover, dies at 101",
+      "description": "Gilot, who was 101, emerged from Picasso's shadow to become acclaimed as an artist in her own right.",
+      "url": "http://www.bbc.co.uk/news/entertainment-arts-65831824",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/8BB1/production/_130016753_gettyimages-582214125.jpg",
+      "publishedAt": "2023-06-07T15:37:20.9933048Z",
+      "content": "Francoise Gilot, who emerged from the shadow of her lover Pablo Picasso to become acclaimed as an artist in her own right, has died at the age of 101.\r\nAn accomplished painter, Gilot also wrote a bes… [+3232 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+
+      "description": "Raging wildfires in Canada have sent smoke surging across the US, causing dangerous air quality levels for millions of people.",
+      "url": "http://www.bbc.co.uk/news/live/world-us-canada-65835239",
+      "urlToImage": "https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/5.3.0/bbc_news_logo.png",
+      "publishedAt": "2023-06-07T14:22:31.3300921Z",
+      "content": "Outdoor activities at public schools in New York and Washington DC have been suspended.\r\nNew York's Department of Education announced the news last night, as Mayor Eric Adams warned that conditions i… [+720 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "CNN chief out after just 13 months",
+      "description": "Chris Licht had been criticised for CNN's handling of a recent town hall interview with Donald Trump.",
+      "url": "http://www.bbc.co.uk/news/business-65835981",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/152A3/production/_130019668_whatsubject.jpg",
+      "publishedAt": "2023-06-07T14:07:19.2518704Z",
+      "content": "The chief executive of CNN has stepped down after just 13 months in the job. \r\nChris Licht had been been under pressure after a recent article about him in the Atlantic magazine, for which he provide… [+1169 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC Sport",
+      "title": "Messi to join Inter Miami",
+      "description": "Argentina legend Lionel Messi will join MLS side Inter Miami after leaving Paris St-Germain.",
+      "url": "http://www.bbc.co.uk/sport/football/65832658",
+      "urlToImage": "https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/11787/production/_124395517_bbcbreakingnewsgraphic.jpg",
+      "publishedAt": "2023-06-07T13:37:29.9711621Z",
+      "content": "Argentina legend Lionel Messi will join American side Inter Miami after his exit from French champions Paris St-Germain.\r\nThe former Barcelona player is set to reject a more lucrative offer from Saud… [+1896 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Latest News",
+      "description": "The BBC's James Waterhouse witnesses an evacuation in the Ukrainian city of Kherson.",
+      "url": "http://www.bbc.co.uk/news/world-europe-65837844",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/3B1C/production/_130023151_p0fst8ph.jpg",
+      "publishedAt": "2023-06-07T16:07:19.8521307Z",
+      "content": "The BBC's James Waterhouse witnessed an emotional rescue in the city of Kherson, as people were evacuated through the flooded streets in dinghies.\r\nThousands of people are being evacuated after a dam… [+58 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Oldest News",
+      "description": "The former VP was Trump's ambassador to the Christian right - now evangelicals can help him in 2024.",
+      "url": "http://www.bbc.co.uk/news/world-us-canada-65814309",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/09C4/production/_130000520_20168683001d00722922f25512e9343e004ea7b2.jpg",
+      "publishedAt": "2022-06-07T10:07:24.2681612Z",
+      "content": "Media caption, How Mike Pence became a villain in Trump world\r\nIn a traditional American political world, Mike Pence's 2024 presidential campaign would have a lot going for it.\r\nA politician with exp… [+4207 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Prince Harry in court latest: Duke being cross-examined in hacking trial",
+      "description": "On Tuesday, Harry said reporters started hacking his phone as a teenager - creating \"huge paranoia\".",
+      "url": "http://www.bbc.co.uk/news/live/uk-65767193",
+      "urlToImage": "https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/5.3.0/bbc_news_logo.png",
+      "publishedAt": "2023-06-07T09:37:24.8769055Z",
+      "content": "Prince Harry gave his first day of evidence in the witness box yesterday, as part of his case against Mirror Group Newspapers.\r\nIn doing so, he became the first senior royal to give evidence in court… [+798 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Rishi Sunak to raise trade issues in US talks with Joe Biden",
+      "description": "The prime minister says \"subsidy races\" are not a solution to hitting climate goals, as he visits Washington.",
+      "url": "http://www.bbc.co.uk/news/uk-politics-65828817",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/13061/production/_130012977_sunakplanerishisunak.png",
+      "publishedAt": "2023-06-07T08:52:17.9705143Z",
+      "content": "Prime Minister Rishi Sunak has said he expects to discuss Joe Biden's flagship package of investment in green industries when he meets the president during his trip to the United States.\r\nOn the plan… [+4168 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Seven shot and two killed at Virginia high school graduation",
+      "description": "A father, 36, and his recently graduated son, 18, were killed in the shooting.",
+      "url": "http://www.bbc.co.uk/news/world-us-canada-65829241",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/D7C9/production/_130014255_39a5196783adb53d835d2fcc248f68ddb8b46b7a1387_55_4629_26041000x563.jpg",
+      "publishedAt": "2023-06-07T07:07:26.4398553Z",
+      "content": "Two people have been killed and five others injured in a shooting that took place during a high school graduation ceremony in Richmond, Virginia. \r\nThe shooting outside the Atria Theater sent student… [+2148 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "BBC News",
+      "title": "Ukraine war latest: UN warns of 'grave consequences' after Nova Kakhovka dam breached",
+      "description": "The UN's aid chief says the scale of the catastrophe at the Kakhovka dam will only become clear in the coming days.",
+      "url": "http://www.bbc.co.uk/news/live/world-europe-65816109",
+      "urlToImage": "https://m.files.bbci.co.uk/modules/bbc-morph-news-waf-page-meta/5.3.0/bbc_news_logo.png",
+      "publishedAt": "2023-06-07T06:52:22.5025363Z",
+      "content": "A senior Nato official says Russian actors most likely had\r\na motive to damage the Nova Kakhovka dam, but he added that it was still too\r\nearly to make an assessment. The official ruled out an air st… [+1222 chars]"
+    }
+  ]
+}
