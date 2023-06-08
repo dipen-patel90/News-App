@@ -8,6 +8,10 @@ buildscript {
         okhttp_version = '5.0.0-alpha.9'
         glide = '4.15.1'
         biometric_version = '1.1.0'
+        mockito_core_version = '3.3.3'
+        mockito_kotlin_version = '5.0.0'
+        coroutine_test_version = '1.7.0'
+        core_testing_version = '2.2.0'
     }
 }
 plugins {

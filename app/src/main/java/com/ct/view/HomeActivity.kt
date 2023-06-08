@@ -7,8 +7,8 @@ import com.ct.base.BaseActivity
 import com.ct.databinding.ActivityHomeBinding
 import com.ct.model.ToolbarConfig
 import com.ct.viewmodel.HomeViewModel
-import com.mandi.extention.hide
-import com.mandi.extention.show
+import com.ct.extention.hide
+import com.ct.extention.show
 
 class HomeActivity : BaseActivity() {
 

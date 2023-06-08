@@ -1,8 +1,8 @@
 package com.ct.di
 
-import com.ct.repository.NewsRepositoryImpl
 import com.ct.api.ApiInterface
 import com.ct.repository.NewsRepository
+import com.ct.repository.NewsRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +15,6 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideWeatherRepository(apiInterface: ApiInterface): NewsRepository =
+    fun provideNewsRepository(apiInterface: ApiInterface): NewsRepository =
         NewsRepositoryImpl(apiInterface)
 }
