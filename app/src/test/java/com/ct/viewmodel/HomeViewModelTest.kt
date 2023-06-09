@@ -74,7 +74,7 @@ class HomeViewModelTest {
     fun test_updateListSelection() = runTest {
         read_news_response()
 
-        val selectIndex = 3;
+        val selectIndex = 3
 
         val result = sut.newsHeadlines.getValueBlockedOrNull()
         result?.data?.getOrNull(selectIndex)?.let {
