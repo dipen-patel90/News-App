@@ -32,3 +32,12 @@ There are two flavours in the app
 Update the build varient in Android studio to target respective end-point.
 
 ----------------
+## Demo -Video
+
+
+
+https://github.com/dipenptl1/News-App/assets/7566567/183b0288-0a26-4eee-a637-eddb07e3bd74
+
+
+
+----------------
