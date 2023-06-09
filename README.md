@@ -24,4 +24,11 @@ BBC_API_KEY="REPLACE_WITH_YOUR_KEY"
 ABC_API_KEY="REPLACE_WITH_YOUR_KEY"
 ```
 * Build and run the app on simulator or real device
+
+* Note:  
+There are two flavours in the app  
+"bbc" is targeting to "/bbc-news"  
+"abc" is targeting to "/abc-news" 
+Update the build varient in Android studio to target respective end-point.
+
 ----------------
