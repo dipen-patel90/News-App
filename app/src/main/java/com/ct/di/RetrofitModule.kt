@@ -1,5 +1,6 @@
 package com.ct.di
 
+import com.ct.Config
 import com.ct.api.ApiInterface
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -79,9 +80,7 @@ class RetrofitModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit = Retrofit.Builder()
-        // We are providing URL in each calls so we don't need to specify base-url here
-        // Adding a dummy URL to avoid crash as Retrofit requires base-url while initialization
-        .baseUrl("http://localhost/")
+        .baseUrl(Config.BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(gsonConverterFactory)
         .build()
