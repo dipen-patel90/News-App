@@ -9,11 +9,17 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.ct.R
 
+/**
+* Util file to handle biometric operations
+* */
 object BiometricUtils {
 
     interface BiometricAuthListener {
+        // Executes when device does not support biometric
         fun onBiometricNotSupported()
+        // Executes when fingerprint Authentication is succeed
         fun onBiometricAuthenticationSuccess(result: BiometricPrompt.AuthenticationResult)
+        // Executes when any error occurred while fingerprint Authentication
         fun onBiometricAuthenticationError(errorCode: Int, errorMessage: String)
     }
 
@@ -24,6 +30,10 @@ object BiometricUtils {
         return canAuthenticate == BiometricManager.BIOMETRIC_SUCCESS
     }
 
+    /**
+    * Launch this method when fingerprint verification is required
+    * This method will execute following callback [BiometricUtils.BiometricAuthListener]
+    * */
     fun showBiometricPrompt(
         activity: FragmentActivity,
         listener: BiometricAuthListener,
@@ -65,7 +75,7 @@ object BiometricUtils {
                 super.onAuthenticationFailed()
                 listener.onBiometricAuthenticationError(
                     100,
-                    "Authentication failed"
+                    activity.getString(R.string.authentication_failed)
                 )
             }
 

@@ -20,6 +20,7 @@ class HeadlineListAdapter(
 
         fun bind(headline: UINewsHeadline) {
             if (!isLargeScreen) {
+                // Highlight the selected list item only when we are in large screen mode
                 headline.isSelected = false
             }
             binding.newsHeadline = headline

@@ -1,6 +1,5 @@
 package com.ct.viewmodel
 
-import androidx.lifecycle.viewModelScope
 import com.ct.api.APIResponse
 import com.ct.base.BaseViewModel
 import com.ct.extention.getValueBlockedOrNull
@@ -10,15 +9,24 @@ import com.ct.repository.NewsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+* Created ViewModel which will be shared between NewsHeadlinesFragment & NewsDescriptionFragment
+* */
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val newsRepository: NewsRepository) :
     BaseViewModel() {
 
     private val _newsHeadlines = MutableSharedFlow<APIResponse<List<UINewsHeadline>>>(1)
     val newsHeadlines = _newsHeadlines.asSharedFlow()
+
+    /**
+    * Get headline from the API
+    * -Filter news where title & date is not-null
+    * -Convert the server response object to view-object
+    * -Sort the response by date
+    * */
     fun getTopHeadlines() = launchWithViewModelScope(
         call = {
             _newsHeadlines.emit(APIResponse.Loading())
@@ -44,7 +52,11 @@ class HomeViewModel @Inject constructor(private val newsRepository: NewsReposito
         })
 
     private val _selectedHeadline = MutableSharedFlow<UINewsHeadline>(1)
-    val selectedHeadlines = _selectedHeadline.asSharedFlow()
+    val selectedHeadline = _selectedHeadline.asSharedFlow()
+    /**
+    * When user select any news item mark it selected in list object
+    * and also update the selectedHeadline object to display the news on description screen
+    * */
     fun updateListSelection(selectedHeadline: UINewsHeadline) = launchWithViewModelScope(
         call = {
             _selectedHeadline.emit(selectedHeadline)

@@ -5,11 +5,12 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import com.ct.base.BaseActivity
 import com.ct.databinding.ActivityHomeBinding
-import com.ct.model.ToolbarConfig
-import com.ct.viewmodel.HomeViewModel
 import com.ct.extention.hide
 import com.ct.extention.show
+import com.ct.model.ToolbarConfig
+import com.ct.viewmodel.HomeViewModel
 
+// Launcher activity which is holding all the ui(fragment)
 class HomeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityHomeBinding

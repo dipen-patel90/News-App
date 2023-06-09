@@ -114,7 +114,7 @@ dependencies {
     // Biometric
     implementation "androidx.biometric:biometric:$biometric_version"
 
-    //testing
+    //testing dependencies
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-core:$mockito_core_version"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin_version"

@@ -36,6 +36,7 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    // Function used for collecting flow data
     fun <K> collectFlow(flow: SharedFlow<K>, function: (K) -> Unit) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

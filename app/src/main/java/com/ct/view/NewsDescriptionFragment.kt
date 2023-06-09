@@ -32,7 +32,7 @@ class NewsDescriptionFragment : BaseFragment() {
     }
 
     override fun collectFlow() {
-        collectFlow(homeViewModel.selectedHeadlines) {
+        collectFlow(homeViewModel.selectedHeadline) {
             binding.newsHeadline = it
         }
     }

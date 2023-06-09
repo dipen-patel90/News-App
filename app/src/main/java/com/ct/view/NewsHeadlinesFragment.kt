@@ -14,7 +14,9 @@ import com.ct.extention.addHorizontalIndicator
 import com.ct.extention.addVerticalIndicator
 import com.ct.viewmodel.HomeViewModel
 
-
+/**
+* Fragment to display news headlines in the list
+* */
 class NewsHeadlinesFragment : BaseFragment() {
 
     private var _binding: FragmentNewsHeadlinesBinding? = null
@@ -40,6 +42,7 @@ class NewsHeadlinesFragment : BaseFragment() {
         super.onResume()
         // "descriptionFragmentContainer" available in large screens only
         binding.descriptionFragmentContainer?.let {
+            // For large screen add NewsDescriptionFragment and show news detail in right pane
             childFragmentManager.beginTransaction()
                 .replace(it.id, NewsDescriptionFragment())
                 .commit()
@@ -51,9 +54,11 @@ class NewsHeadlinesFragment : BaseFragment() {
             headlineListAdapter = HeadlineListAdapter(
                 isLargeScreen = resources.getBoolean(R.bool.isLargeScreen),
                 onItemClick = { selectedHeadline ->
+                    // Update the selected item in list and description screen
                     homeViewModel.updateListSelection(selectedHeadline)
 
                     if (descriptionFragmentContainer == null) {
+                        // If description screen is not available in current fragment then launch new screen
                         navigateToDescriptionFragment()
                     }
                 })
@@ -61,6 +66,7 @@ class NewsHeadlinesFragment : BaseFragment() {
             newsHeadlineRv.addVerticalIndicator()
             newsHeadlineRv.addHorizontalIndicator()
 
+            // Implemented pull to refresh
             srl.setOnRefreshListener {
                 homeViewModel.getTopHeadlines()
             }

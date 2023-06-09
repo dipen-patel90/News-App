@@ -17,6 +17,8 @@ abstract class BaseViewModel : ViewModel() {
     @ApplicationContext
     lateinit var applicationContext: Context
 
+    // Common function to launch a Coroutine from ViewModel with viewModelScope
+    // and handle exception
     fun launchWithViewModelScope(
         call: suspend () -> Unit,
         exceptionCallback: suspend (exception: String) -> Unit
