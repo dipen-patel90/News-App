@@ -1,4 +1,4 @@
-# New-App
+# News-App
 Get news from the below thirdparty end points 
 ###### https://newsapi.org/v2/bbc-news
 ###### https://newsapi.org/v2/abc-news
